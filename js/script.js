@@ -6,17 +6,15 @@ va applicato uno sconto del 40 % per gli over 65.
 L'output del prezzo finale va stampato in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 */
 
-console.log("jsok");
+console.log("js ok");
 
 
 
-
-var distanceToTravel = prompt("distanza da percorrere(km)")
-var passengerAge = prompt("età del passeggero(anni compiuti)")
+var distanceToTravel = parseInt(prompt("distanza da percorrere(km)"))
+var passengerAge = parseInt(prompt("età del passeggero(anni compiuti)"))
 var ticketPrice = 0.21
-var ticketPriceTotal =
-
-    console.log("distanza da percorrere:", distanceToTravel)
+var ticketPriceTotal = ""
+console.log("distanza da percorrere:", distanceToTravel)
 console.log("età passegero:", passengerAge)
 console.log("prezzo biglietto per km :", ticketPrice)
 
@@ -26,12 +24,12 @@ if (passengerAge < 18) {
     ticketPriceTotal = (distanceToTravel * ticketPrice) - (((distanceToTravel * ticketPrice) * 40) / 100)
 } else {
     ticketPriceTotal = distanceToTravel * ticketPrice
-
 }
+
 console.log("prezzo finale con offerta applicata", ticketPriceTotal);
 
 var inTotalPrice = document.getElementById("total-price-ticket");
-inTotalPrice.innerHTML = ticketPriceTotal;
+inTotalPrice.innerHTML = ticketPriceTotal.toFixed(2);
 
 var inKm = document.getElementById("km");
 inKm.innerHTML = distanceToTravel;
@@ -39,4 +37,5 @@ inKm.innerHTML = distanceToTravel;
 var inAge = document.getElementById("age");
 inAge.innerHTML = passengerAge;
 
+var n = ticketPriceTotal.toFixed(2)
 
