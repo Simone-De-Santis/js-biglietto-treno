@@ -28,6 +28,15 @@ if (passengerAge < 18) {
     ticketPriceTotal = distanceToTravel * ticketPrice
 
 }
-console.log("prezzo finale con offerta applicata", ticketPriceTotal)
+console.log("prezzo finale con offerta applicata", ticketPriceTotal);
+
+var inTotalPrice = document.getElementById("total-price-ticket");
+inTotalPrice.innerHTML = ticketPriceTotal;
+
+var inKm = document.getElementById("km");
+inKm.innerHTML = distanceToTravel;
+
+var inAge = document.getElementById("age");
+inAge.innerHTML = passengerAge;
 
 
