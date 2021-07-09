@@ -15,40 +15,38 @@ var passengerAge = parseInt(prompt("età del passeggero(anni compiuti)"))
 var ticketPrice = 0.21
 var ticketPriceTotal = ""
 var discountMessage = ("Ti è stato applicato uno sconto del: ")
+// discount logic
+var hasDiscount = false
 // console.log("distanza da percorrere:", distanceToTravel)
 // console.log("età passegero:", passengerAge)
 // console.log("prezzo biglietto per km :", ticketPrice)
 
-// discount logic
-var hasDiscount = false
-
 // ----------------------------
-if (passengerAge < 18) {
-    ticketPriceTotal = (distanceToTravel * ticketPrice) - (((distanceToTravel * ticketPrice) * 20) / 100);
-    discountMessage += "20 %"
-    var hasDiscount = true
-
-} else if (passengerAge > 64) {
-    ticketPriceTotal = (distanceToTravel * ticketPrice) - (((distanceToTravel * ticketPrice) * 40) / 100)
-    discountMessage += "40 %"
-    var hasDiscount = true
+// validazione 
+if (isNaN(distanceToTravel) || isNaN(passengerAge) || passengerAge <= 1 || distanceToTravel < 1) {
+    alert("Dati inseriti non corretti")
 
 } else {
-    ticketPriceTotal = distanceToTravel * ticketPrice
+
+    if (passengerAge < 18) {
+        ticketPriceTotal = (distanceToTravel * ticketPrice) - (((distanceToTravel * ticketPrice) * 20) / 100);
+        discountMessage += "20 %"
+        var hasDiscount = true
+    } else if (passengerAge > 64) {
+        ticketPriceTotal = (distanceToTravel * ticketPrice) - (((distanceToTravel * ticketPrice) * 40) / 100)
+        discountMessage += "40 %"
+        var hasDiscount = true
+    } else {
+        ticketPriceTotal = distanceToTravel * ticketPrice
+    }
 }
+// console.log(hasDiscount)
 
 // inserimento messaggio discount in html
-// console.log(hasDiscount)
 if (hasDiscount == true) {
     var inDiscountMessage = document.getElementById("discount-message");
     inDiscountMessage.innerHTML = discountMessage
-
 }
-
-
-
-
-
 
 // console.log("prezzo finale con offerta applicata", ticketPriceTotal);
 
